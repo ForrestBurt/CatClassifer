@@ -1,0 +1,10 @@
+Bootstrap: docker
+From: rockylinux/rockylinux:8.7
+
+%post
+        dnf -y update && dnf -y upgrade
+        dnf -y groupinstall "Development Tools" 
+        dnf -y install cmake make autoconf python39 python39-devel epel-release
+
+	python3 -m pip install --upgrade pip
+        python3 -m pip install torch torchvision matplotlib notebook opencv-python numpy 
